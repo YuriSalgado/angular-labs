@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-br" data-framework="angularjs">
+	<head>
+		<meta charset="utf-8">
+		<title>AngularJS 1.6 - Todo MVC</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+		<script src="script.js"></script>
+		<style></style>
+	</head>
+	<body ng-app="superApp" ng-controller="specificApp">
+		<div class="header">
+			<h2>My itens list - Remaining {{remaining()}} / {{items.length}} <span ng-click="removeCompleted()" class="energyBtn">Remove completed</span></h2>
+			<input ng-model="itemText" ng-keyup="searchEnter()" type="text" size="30" placeholder="add new item here">
+			<span ng-click="addItemClick()" class="addBtn">Add</span>
+		</div>
+
+		<ul>
+			<li ng-repeat="item in items" class="checked-{{item.done}}" ng-click="toggleDoneItemClick(item)">{{item.text}}</li>
+		</ul>
+	</body>
+</html>
